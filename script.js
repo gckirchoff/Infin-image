@@ -13,7 +13,7 @@ let totalImages = 0;
 let photosArray = [];
 
 // Unsplash API
-const count = 30;
+let count = 10;
 var searchText = '';
 const apiKey = 'YJa52NEIcG4qN8s6tavTfzGaECtCfDAFwJD_NLwPT4Q';
 let url = () => `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&orientation=squarish&query=${searchText}`;
@@ -35,11 +35,12 @@ function handleSubmit(e) {
     clearPhotos();
     searchText = searchInput.value;
     loader.hidden = false;
+    count = 10;
     getPhotos();
+    count = 30;
 }
 
 
-form.addEventListener('submit', handleSubmit)
 
 
 
@@ -109,4 +110,5 @@ window.addEventListener('scroll', () => {
 });
 
 
-// On load
+// Event Listeners
+form.addEventListener('submit', handleSubmit);
